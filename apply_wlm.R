@@ -22,10 +22,10 @@ apply_wlm_pair<-function(data,cm){
   # pair
   data$c_wlm_beta<-(4*data$c_beta-2*data$m_beta)/3
   data$c_wlm_se<-sqrt((16*data$c_se**2+4*data$m_se**2-16*cm*sqrt((data$c_se**2)*(data$m_se**2)))/9)
-  data$c_wlm_p<-2*pnorm(-abs(data$c_wlm_pair_beta/data$c_wlm_pair_se))
+  data$c_wlm_p<-2*pnorm(-abs(data$c_wlm_beta/data$c_wlm_se))
   data$m_wlm_beta<-(4*data$m_beta-2*data$c_beta)/3
   data$m_wlm_se<-sqrt((16*data$m_se**2+4*data$c_se**2-16*cm*sqrt((data$c_se**2)*(data$m_se**2)))/9)
-  data$m_wlm_p<-2*pnorm(-abs(data$m_wlm_pair_beta/data$m_wlm_pair_se))
+  data$m_wlm_p<-2*pnorm(-abs(data$m_wlm_beta/data$m_wlm_se))
   # Return data frame
   data
 }
